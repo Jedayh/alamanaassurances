@@ -10,3 +10,19 @@
 .mega-menu {
     background: rgba(0, 0, 0, 0.42);
 }
+
+.topbar {
+    background: rgba(0, 0, 0, 0.42);
+}
+h1.text-black{
+	text-transform: lowercase !important;
+}
+ul.page-breadcrumb > li > a{
+	text-transform: lowercase !important;
+}
+div.text-white > p{
+	color: #FFF !important;
+} 
+img.map-imgs{
+	width: 100%;
+}

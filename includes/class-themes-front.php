@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		{
 			static::$theme = basename(ALAMA_ASSURANCE);
 			$this->set_hooks();
+			$this->acf_field();
 		}
 		public function set_hooks()
 		{
@@ -122,26 +123,209 @@ if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 		    'section' => 'panel_id',
 		) );
 
-	    $wp_customize->add_setting( 'section_three' );
-	    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'section_three', array(
-	        'label'    => __( 'Background Home Header', 'm1' ),
-	        'section'  => 'section_id',
-	        'settings' => 'section_three',
-	    ) ) );
-	    $wp_customize->add_setting( 'title_header' );
-	    $wp_customize->add_control( 'title_header', array(
+	    $wp_customize->add_setting( 'mail_adresse' );
+	    $wp_customize->add_control( 'mail_adresse', array(
 		    'type' => 'text',
 		    'priority' => 10,
 		    'section' => 'section_id',
-		    'label' => __( 'Titre de premier niveau', 'alma' ),
+		    'label' => __( 'Adresse email header', 'alma' ),
 		) );
-		$wp_customize->add_setting( 'sub_title' );
-	    $wp_customize->add_control( 'sub_title', array(
+		$wp_customize->add_setting( 'tel_header' );
+	    $wp_customize->add_control( 'tel_header', array(
 		    'type' => 'text',
 		    'priority' => 10,
 		    'section' => 'section_id',
-		    'label' => __( 'Titre de seconde niveau', 'alma' ),
+		    'label' => __( 'Téléphone header', 'alma' ),
 		) );
 	}
-		
+
+	//Acf configuration
+	public function acf_field(){
+		if( function_exists('acf_add_local_field_group') ){
+				acf_add_local_field_group(array(
+				'key' => 'group_5cf2a57e208df',
+				'title' => 'configuration',
+				'fields' => array(
+					array(
+						'key' => 'field_5cf2a58768010',
+						'label' => 'configuration',
+						'name' => 'configuration',
+						'type' => 'repeater',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'collapsed' => '',
+						'min' => 0,
+						'max' => 0,
+						'layout' => 'table',
+						'button_label' => '',
+						'sub_fields' => array(
+							array(
+								'key' => 'field_5cf2a5a868011',
+								'label' => 'image_slider',
+								'name' => 'image_slider',
+								'type' => 'image',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'return_format' => 'url',
+								'preview_size' => 'large',
+								'library' => 'all',
+								'min_width' => '',
+								'min_height' => '',
+								'min_size' => '',
+								'max_width' => '',
+								'max_height' => '',
+								'max_size' => '',
+								'mime_types' => '',
+							),
+							array(
+								'key' => 'field_5cf2a5c668012',
+								'label' => 'url',
+								'name' => 'url',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'maxlength' => '',
+							),
+							array(
+								'key' => 'field_5cf2a5d468013',
+								'label' => 'premiere_description',
+								'name' => 'premiere_description',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'maxlength' => '',
+							),
+							array(
+								'key' => 'field_5cf2a5e268014',
+								'label' => 'seconde_description',
+								'name' => 'seconde_description',
+								'type' => 'text',
+								'instructions' => '',
+								'required' => 0,
+								'conditional_logic' => 0,
+								'wrapper' => array(
+									'width' => '',
+									'class' => '',
+									'id' => '',
+								),
+								'default_value' => '',
+								'placeholder' => '',
+								'prepend' => '',
+								'append' => '',
+								'maxlength' => '',
+							),
+						),
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'post_template',
+							'operator' => '==',
+							'value' => 'home.php',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			));
+		}
+		if( function_exists('acf_add_local_field_group') ){
+			acf_add_local_field_group(array(
+				'key' => 'group_5cf2ccdd27f4b',
+				'title' => 'Image page',
+				'fields' => array(
+					array(
+						'key' => 'field_5cf2ccf3f7601',
+						'label' => 'header image',
+						'name' => 'header_image',
+						'type' => 'image',
+						'instructions' => '',
+						'required' => 0,
+						'conditional_logic' => 0,
+						'wrapper' => array(
+							'width' => '',
+							'class' => '',
+							'id' => '',
+						),
+						'return_format' => 'url',
+						'preview_size' => 'large',
+						'library' => 'all',
+						'min_width' => '',
+						'min_height' => '',
+						'min_size' => '',
+						'max_width' => '',
+						'max_height' => '',
+						'max_size' => '',
+						'mime_types' => '',
+					),
+				),
+				'location' => array(
+					array(
+						array(
+							'param' => 'page',
+							'operator' => '==',
+							'value' => 'apropo.php',
+						),
+						array(
+							'param' => 'page',
+							'operator' => '==',
+							'value' => 'contact.php',
+						),
+						array(
+							'param' => 'page',
+							'operator' => '==',
+							'value' => 'services.php',
+						),
+					),
+				),
+				'menu_order' => 0,
+				'position' => 'normal',
+				'style' => 'default',
+				'label_placement' => 'top',
+				'instruction_placement' => 'label',
+				'hide_on_screen' => '',
+				'active' => true,
+				'description' => '',
+			));
+		}
+	}
 }

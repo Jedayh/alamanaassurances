@@ -56,6 +56,8 @@ NOTE: This file contains all scripts for the actual Template.
   "use strict";
   var POTENZA = {};
 
+  var plugin_path = "./wp-content/themes/alamanaassurances/assets/js/";
+
   /*************************
   Predefined Variables
 *************************/
@@ -1052,9 +1054,9 @@ var _arr  = {};
 
 
 // Below code is not part of template
-/*$( document ).ready(function() {
+$( document ).ready(function() {
   $.ajax({
-    url: 'plugin_path',
+    url: 'http://themes.potenzaglobalsolutions.com/top-bar-section.php',
     type: 'post',
     //dataType: 'json',
     data:'action=pgs_top_bar&theme=webster',
@@ -1067,4 +1069,3 @@ var _arr  = {};
 $(document).on('click','a.frame-close', function(e){
   $('.header-preview').slideUp();
 });
-*/

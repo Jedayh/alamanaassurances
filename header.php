@@ -25,7 +25,10 @@
 <!--=================================
  preloader -->
 <?php get_template_part('/template-parts/header-nav'); ?>
-<?php get_template_part('/template-parts/header-slider'); ?>
+ <?php if( is_front_page() || is_home() ) : ?>
+	<?php get_template_part('/template-parts/header-slider'); ?>
+<?php endif;?>
+
  
 <!--=================================
  header -->
